@@ -1,0 +1,23 @@
+<launch>
+
+
+  <node name="riddle" pkg="beginner_tutorials" type="riddle.py" output="screen">
+  	<param name="voice" value="voice_don_diphone"/>
+  	<param name="wavepath" value="$(find beginner_tutorials)/sounds"/>
+  </node>
+
+  <node name="pub_frame" pkg="beginner_tutorials" type="pub_frame.py" output="screen"/>
+
+  
+
+  <param name="aiml_path" value="/home/ros/robocup/src/ros_aiml/data" />
+
+  <node name="soundplay_node" pkg="sound_play" type="soundplay_node.py" output="screen"/>
+	<!--include file="$(find sound_play)/soundplay_node.launch"></include-->
+	<node name="aiml_tts" pkg="ros_aiml" type="aiml_tts_client.py" output="screen"/>
+
+	<node name="aiml_speech_recog" pkg="ros_aiml" type="aiml_speech_recog_client.py" output="screen"/>
+
+	<node name="Shengyuan" pkg="ros_aiml" type="Voice_point.py" output="screen"/>
+
+</launch>
